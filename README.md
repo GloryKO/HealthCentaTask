@@ -48,6 +48,7 @@ This project processes healthcare-related data from an Excel file, transforms it
     this starts the server locally on port 8000 (this is very important as the main file is dependent on the server running)
      
     - Update the file_path variable in main.py to point to your Excel file path, 
+    - uncomment the call to main function 
     - open a different terminal and run the main processing script using the following command:
       `python main.py`
 
