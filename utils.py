@@ -61,7 +61,7 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
     df.drop(df.columns[6],axis=1,inplace=True)
     # Drop rows where 'SERVICE' contains 'HEART' or 'HEAD' as they are not needed in the JSON structure
    
-    df = df[(df['SERVICE'] != 'HEART') & (df['SERVICE'] != 'HEAD')]
+    df = df[(df['SERVICE'] != 'HEART') & (df['SERVICE'] != 'HEAD')].copy()
 
     # Drop remaining rows with any NaN values
     df = df.dropna()

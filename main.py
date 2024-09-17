@@ -1,6 +1,7 @@
 
 from utils import *
 import logging
+import argparse
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
@@ -37,8 +38,21 @@ def main(file_path: str, api_url: str) -> None:
     except Exception as e:
         logger.exception(f"An error occurred during the data processing pipeline: {e}")
 
-if __name__ == "__main__":
-    file_path = "/home/glory-ko/HealthCentaTask/Sample data.xls"
-    api_url = "http://localhost:8000"  # URL for the mock API server
-    main(file_path, api_url)
+#Run directly by changing just the file path
+# if __name__ == "__main__":
+#     file_path = "/home/glory-ko/HealthCentaTask/Sample data.xls"
+#     api_url = "http://localhost:8000"  # URL for the mock API server
+#     main(file_path, api_url)
 
+#allows placing of the file path in the terminal instead of editing the code
+if __name__ == "__main__":
+    # Argument parser to get file path and API URL from the command line
+    parser = argparse.ArgumentParser(description="Process Excel file and send data to API")
+    parser.add_argument("file_path", help="Path to the Excel file")
+    parser.add_argument("api_url", help="URL of the API server")
+
+    # Parse the arguments
+    args = parser.parse_args()
+
+    # Run the main function with the provided arguments
+    main(args.file_path, args.api_url)
