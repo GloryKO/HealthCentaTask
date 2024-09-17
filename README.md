@@ -52,8 +52,6 @@ This project processes healthcare-related data from an Excel file, transforms it
       `python main.py`
 
 4. The processed JSON data will be printed to the console.
-   -
-
 ---
 
 ## *How It Works*
