@@ -1,6 +1,7 @@
 # HealthCenta Data Processing
 
 This project processes healthcare-related data from an Excel file, transforms it into a specific JSON format, and prepares it for API submission.
+![Main Interface](screenshot/health-data.png)
 
 ## *Setup*
 
