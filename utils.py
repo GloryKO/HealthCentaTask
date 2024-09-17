@@ -4,6 +4,7 @@ from typing import List, Dict, Any
 import requests
 import sys
 
+#read in the excel file from specified path
 def read_excel_file(file_path: str) -> pd.DataFrame:
     """
     Read the Excel file and return a pandas DataFrame.
@@ -17,6 +18,7 @@ def read_excel_file(file_path: str) -> pd.DataFrame:
         print(f"Error reading Excel file: {str(e)}")
         sys.exit(1)
 
+#clean and perform some EDA on the data
 def clean_data(df: pd.DataFrame) -> pd.DataFrame:
     """
     Clean the data by handling missing values and removing duplicates.
@@ -33,7 +35,6 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
     df.drop(df.columns[6],axis=1,inplace=True)
     #drop rows where 'SERVICE' contains 'HEART' or 'HEAD'(as it is not required in the expected JSON response)
     df = df[(df['SERVICE'] != 'HEART') & (df['SERVICE'] != 'HEAD')]
-    #df=df.fillna('null') #replace remaining Nan values with null
     df=df.dropna()
     print(df)
     df = df.drop_duplicates() #remove any duplicate data
@@ -41,6 +42,7 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
     print(f"Shape after cleaning: {df.shape}")
     return df
 
+#format the data to meet required JSON structure
 def transform_data(df: pd.DataFrame) -> List[Dict[str, Any]]:
     """
     Transform the data into the desired format for the API.
@@ -74,12 +76,14 @@ def transform_data(df: pd.DataFrame) -> List[Dict[str, Any]]:
     print(f"Transformed {len(transformed_data)} rows")
     return transformed_data
 
+#dump json data
 def generate_json(data: List[Dict[str, Any]]) -> str:
     """
     Generate JSON from the transformed data.
     """
     return json.dumps(data, indent=2)
 
+#send a request to the mock server
 def send_to_server(json_data: str, api_url: str) -> requests.Response:
     """
     Send the JSON data to the specified API endpoint.
