@@ -1,6 +1,3 @@
-
-
-
 import json
 import logging
 from http.server import HTTPServer, BaseHTTPRequestHandler
