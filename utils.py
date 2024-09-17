@@ -58,7 +58,7 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
     df.columns = df.columns.str.strip()
 
     # Drop the empty column (assuming it's always the 7th column)
-    df.drop(df.columns[6],axis=1,inplace=True)
+    df= df.drop(df.columns[6],axis=1)
     # Drop rows where 'SERVICE' contains 'HEART' or 'HEAD' as they are not needed in the JSON structure
    
     df = df[(df['SERVICE'] != 'HEART') & (df['SERVICE'] != 'HEAD')].copy()
