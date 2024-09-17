@@ -7,32 +7,32 @@ This project processes healthcare-related data from an Excel file, transforms it
 1. Ensure you have *Python 3.7+* installed on your system.
 
 2. Clone this repository:
-   bash
-   git clone https://github.com/GloryKO/HealthCentaTask.git
+   
+   `git clone https://github.com/GloryKO/HealthCentaTask.git`
    
 
 3. Navigate into the project directory:
-   bash
-   cd HealthCentaTask
+   
+   `cd HealthCentaTask`
    
 
 4. Create a virtual environment and activate it:
 
    - *On Linux/macOS*:
-     bash
-     python -m venv env
-     source env/bin/activate
+     
+     `python -m venv env`
+     `source env/bin/activate`
      
 
    - *On Windows*:
-     bash
-     python -m venv env
-     env\Scripts\activate
+     
+     `python -m venv env`
+     `env\Scripts\activate`
      
 
 5. Install the required packages:
-   bash
-   pip install -r requirements.txt
+   
+   `pip install -r requirements.txt`
    
 
 ---
@@ -44,17 +44,15 @@ This project processes healthcare-related data from an Excel file, transforms it
 2. Update the file_path variable in main.py to point to your Excel file.
 
 3. Run the scripts:
-   - First, start the mock server:
-     bash
-     python mock_server.py
+   - First, start the mock server by opening your terminal and running the command below:
+     `python mock_server.py`
+      this starts the server locally on port 8000 (this is very important as the main file is dependent on the server running)
      
-   - Then, run the main processing script:
-     bash
-     python main.py
-     
+   - Then, open a different terminal and run the main processing script using the following command:
+      `python main.py`
 
-4. The processed JSON data will be printed to the console.  
-   - To send the data to an API, *uncomment* the relevant lines in the main() function and update the api_url variable with the correct endpoint.
+4. The processed JSON data will be printed to the console.
+   -
 
 ---
 
@@ -66,7 +64,7 @@ This project processes healthcare-related data from an Excel file, transforms it
 
 - *transform_data()*: Converts the DataFrame into the required JSON structure.
 
-- *generate_json()*: Converts the transformed data into a JSON string.
+- *generate_json()*: Converts the transformed data into a JSON data.
 
 - *send_to_server()*: Sends the JSON data to a mock server.
 
@@ -77,5 +75,6 @@ The main() function orchestrates these steps by calling the other functions from
 ## *Notes*
 
 - The script includes *error handling* for file reading and data processing.
-- Print statements are used to display some data in the terminal (this may not be ideal for a production environment).
+- I've added logs and removed prints statements as much as possible
 - A *mock server* has been set up to simulate how this data might be submitted to an endpoint.
+- the data is sent to the mock server and data is displayed in the server terminal
