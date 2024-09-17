@@ -82,5 +82,5 @@ The main() function orchestrates these steps by calling the other functions from
 - I've added logs and removed prints statements as much as possible
 - A *mock server* has been set up to simulate how this data might be submitted to an endpoint.
 - the data is sent to the mock server and data is displayed in the server terminal
-- I have also added the option to place your file path in the main terminal and run the main file directly using :
+- use ctr +c to stop the server in the mock_server terminal
         
